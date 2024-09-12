@@ -18,7 +18,6 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 header {
@@ -149,8 +148,56 @@ input{
 
 /* Card Start */
 
-.single-card {
-    max-width: 210px;
-    max-height: 330px;
-    background-color: white;
+.card {
+    padding-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));;
+    justify-items: center;
+    row-gap: 60px;
 }
+
+.single-card {
+    height: 250px;
+    width: 200px;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 10px;
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.single-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+.single-card button {
+    margin-top: 10px;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.single-card button:hover {
+    top: 2px;
+}
+
+
+.single-card button:first-of-type {
+    background-color: #FD3C4F;
+}
+
+.single-card button:last-of-type {
+    background-color: rgb(0, 192, 128);
+}
+
+/* Card End */
