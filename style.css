@@ -166,7 +166,7 @@ input{
 
 .card {
     padding-top: 90px;
-    display: none;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));;
     justify-items: center;
     row-gap: 60px;
