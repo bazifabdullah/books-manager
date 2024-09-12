@@ -16,30 +16,45 @@
             <p>Manage all your readings <span class="slogan">Efficiently!</span></p>
         </div>
     </header>
-    <section class="hero">
+    <!-- Hero -->
+    <section class="hero" id="hero">
         <div class="hero-div">
             <h1>BookWorms</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quas odit quaerat hic rerum placeat illum, sed libero, illo iusto fugit omnis nihil id laboriosam, similique asperiores voluptates optio dicta?</p>
         </div>
         <div>
-            <button>Add Book</button>
+            <button id="addButton">Add Book</button>
         </div>
     </section>
+    <!-- Form -->
     <section class="form">
-        <form class="cf">
-            <div class="half left cf">
-              <input type="text" id="input-name" placeholder="Title" required>
-              <input type="email" id="input-email" placeholder="Author" required>
-              <input type="number" id="input-subject" placeholder="Number of Pages" required>
+        <form class="cf" id="form">
+            <div class="form-element">
+                <img src="images/cross.png" alt="cross icon" class="cross" id="cross">
+              <input type="text" id="input-title" placeholder="Title" required>
+              <input type="text" id="input-author" placeholder="Author" required>
+              <input type="number" id="input-pages" placeholder="Number of Pages" required>
             </div> 
             <div class="readCheck">
-                <input type="checkbox">
+                <input type="checkbox" id="read-Check">
                 <p>Read</p>
             </div>
-            <input type="submit" value="Add Book" id="input-submit">
+            <button type="submit" id="inputSubmit">Add Book</button>
           </form>
     </section>
-    <section class="card gridContainer">
+    <!-- Card -->
+    <section class="card" id="cards">
+        <!-- <div class="single-card">
+            <p class="bookInfo">
+                Harry Potter by J.K. Rowling, pages: 270, Not Read Yet
+            </p>
+            <div class="btnDiv">
+                <button class="delBtn">Delete</button>
+                <button class="readBtn">Read</button>
+            </div>
+        </div> -->
     </section>
+
+    <script src="script/script.js"></script>
 </body>
 </html>
