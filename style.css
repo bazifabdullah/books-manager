@@ -15,8 +15,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     min-height: 100vh;
-    overflow: hidden;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -52,7 +52,7 @@ header div {
 /* Hero Section Start */
 
 .hero {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -99,7 +99,6 @@ header div {
 /* Form Start */
 
 form {
-    
     max-width: 450px;
     text-align: center;
     margin: 20px auto;
@@ -109,6 +108,15 @@ form {
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
+}
+
+.cross {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    right: -48%;
+    top: -5px;
+    cursor: pointer;
 }
 
 input{
@@ -134,14 +142,22 @@ input{
     cursor: pointer;
 }
 
-#input-submit {
+#inputSubmit {
     color: white; 
     background: #ae70e4;
     cursor: pointer;
     font-size: 14px;
+    border:0; outline:0;
+    padding: 1em;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    font-family: sans-serif;
+    resize: none;
+    border-radius: 10px;
 }
 
-#input-submit:hover {
+#inputSubmit:hover {
     background-color: rgb(174, 112, 228, 0.8);
 }
 /* Form End */
@@ -150,7 +166,7 @@ input{
 
 .card {
     padding-top: 90px;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));;
     justify-items: center;
     row-gap: 60px;
@@ -170,12 +186,12 @@ input{
     border-radius: 10px;
 }
 
-.single-card div {
+.btnDiv {
     display: flex;
     flex-direction: column;
 }
 
-.single-card button {
+.delBtn, .readBtn {
     margin-top: 10px;
     height: 30px;
     border: none;
@@ -187,16 +203,16 @@ input{
     position: relative;
 }
 
-.single-card button:hover {
+.delBtn, .readBtn:hover {
     top: 2px;
 }
 
 
-.single-card button:first-of-type {
+.delBtn {
     background-color: #FD3C4F;
 }
 
-.single-card button:last-of-type {
+.readBtn {
     background-color: rgb(0, 192, 128);
 }
 
