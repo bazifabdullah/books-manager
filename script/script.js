@@ -5,6 +5,26 @@ function book(title, author, pages, readStatus) {
     this.readStatus = readStatus
 }
 
+function deleteBookCard() {
+    let cardContainer = this.parentElement.parentElement;
+    let index = cardContainer.getAttribute('data-index');
+    myLibrary.splice(index, 1);
+    showBookCards();
+  }
+  
+function toggleReadStatus() {
+    let cardContainer = this.parentElement.parentElement;
+    let index = cardContainer.getAttribute('data-index');
+    let currentReadStatus = myLibrary[index].readStatus;
+    if(currentReadStatus == "Unread") {
+        myLibrary[index].readStatus = "Read";
+        showBookCards();
+    } else {
+        myLibrary[index].readStatus = "Unread";
+        showBookCards();
+    }
+}
+
 const addButton = document.getElementById("addButton");
 const heroElement = document.getElementById("hero");
 const formElement = document.getElementById("form");
