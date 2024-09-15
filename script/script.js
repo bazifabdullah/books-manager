@@ -5,32 +5,13 @@ function book(title, author, pages, readStatus) {
     this.readStatus = readStatus
 }
 
-function deleteBookCard() {
-    let cardContainer = this.parentElement.parentElement;
-    let index = cardContainer.getAttribute('data-index');
-    myLibrary.splice(index, 1);
-    showBookCards();
-  }
-  
-function toggleReadStatus() {
-    let cardContainer = this.parentElement.parentElement;
-    let index = cardContainer.getAttribute('data-index');
-    let currentReadStatus = myLibrary[index].readStatus;
-    if(currentReadStatus == "Unread") {
-        myLibrary[index].readStatus = "Read";
-        showBookCards();
-    } else {
-        myLibrary[index].readStatus = "Unread";
-        showBookCards();
-    }
-}
-
 const addButton = document.getElementById("addButton");
 const heroElement = document.getElementById("hero");
 const formElement = document.getElementById("form");
 const crossIcon = document.getElementById("cross");
-const inputSubmitButton = document.getElementById("inputSubmit")
-const bookCards = document.getElementById("cards")
+const inputSubmitButton = document.getElementById("inputSubmit");
+const bookCards = document.getElementById("cards");
+
 
 addButton.addEventListener('click', openForm);
 crossIcon.addEventListener('click', closeForm);
@@ -43,6 +24,26 @@ function openForm() {
 function closeForm() {
     formElement.style.display = "none";
     heroElement.style.display = "flex";
+}
+
+function deleteBookCard() {
+    let cardContainer = this.parentElement.parentElement;
+    let index = cardContainer.getAttribute('data-index');
+    myLibrary.splice(index, 1);
+    showBookCards();
+}
+
+function toggleReadButton() {
+    let cardContainer = this.parentElement.parentElement;
+    let index = cardContainer.getAttribute('data-index');
+    let currentReadStatus = myLibrary[index].readStatus;
+    if(currentReadStatus == "Unread") {
+        myLibrary[index].readStatus = "Read";
+        showBookCards();
+    } else {
+        myLibrary[index].readStatus = "Unread";
+        showBookCards();
+    }
 }
 
 function resetBookCards() {
@@ -60,13 +61,28 @@ function createCard(book, index) {
     const btnDiv = document.createElement('div');
     const deleteBtn = document.createElement('button');
     const readStatusBtn = document.createElement('button');
+    const readCheck = document.querySelector('#read-Check').checked;
 
     card.classList.add('single-card');
     card.dataset.index = index;
     text.classList.add('bookInfo');
     btnDiv.classList.add('btnDiv');
     deleteBtn.classList.add('delBtn');
+    deleteBtn.innerText = "Delete"
+    deleteBtn.addEventListener('click', deleteBookCard)
     readStatusBtn.classList.add('readBtn');
+    readStatusBtn.addEventListener('click', toggleReadButton)
+    
+    let readStatusBtnText;
+
+    if (readCheck === true) {
+        readStatusBtnText = "Mark as Unread"
+    } else {
+        readStatusBtnText = "Mark as Read"
+    }
+
+    readStatusBtn.innerText = readStatusBtnText;
+
     
     text.textContent = `${book.title} by ${book.author}, Pages: ${book.pages}, ${book.readStatus}`;
 
@@ -81,12 +97,12 @@ function getInputValues() {
     const titleInput = document.querySelector('#input-title').value;
     const authorInput = document.querySelector('#input-author').value;
     const pagesInput = document.querySelector('#input-pages').value;
-    const readCheck = document.querySelector('#read-Check').value;
+    const readCheck = document.querySelector('#read-Check').checked;
     let bookReadStatus;
     if (readCheck === true) {
-        bookReadStatus = 'Already Read'
+        bookReadStatus = 'Read'
     } else {
-        bookReadStatus = 'Not Read Yet'
+        bookReadStatus = 'Unread'
     }
 
     return new book(titleInput, authorInput, pagesInput, bookReadStatus)

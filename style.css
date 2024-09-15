@@ -203,7 +203,7 @@ input{
     position: relative;
 }
 
-.delBtn, .readBtn:hover {
+.delBtn:hover, .readBtn:hover {
     top: 2px;
 }
 
