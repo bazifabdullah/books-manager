@@ -78,7 +78,7 @@ header div {
     color: #fff;
 }
 
-.hero button {
+.hero button, header button {
     padding: 10px 30px;
     border: none;
     border-radius: 20px;
@@ -90,7 +90,7 @@ header div {
     height: 40px;
 }
 
-.hero button:hover {
+.hero button:hover, header button:hover {
     background-color: rgb(174, 112, 228, 0.8);
 }
 
