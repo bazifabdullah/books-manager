@@ -72,18 +72,13 @@ function createCard(book, index) {
     deleteBtn.addEventListener('click', deleteBookCard)
     readStatusBtn.classList.add('readBtn');
     readStatusBtn.addEventListener('click', toggleReadButton)
-    
-    let readStatusBtnText;
 
-    if (readCheck === true) {
-        readStatusBtnText = "Mark as Unread"
+    if (book.readStatus == "Read") {
+        readStatusBtn.innerText = "Mark as Unread"
     } else {
-        readStatusBtnText = "Mark as Read"
+        readStatusBtn.innerText = "Mark as Read"
     }
 
-    readStatusBtn.innerText = readStatusBtnText;
-
-    
     text.textContent = `${book.title} by ${book.author}, Pages: ${book.pages}, ${book.readStatus}`;
 
     bookCards.appendChild(card);
