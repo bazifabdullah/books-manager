@@ -19,11 +19,12 @@ crossIcon.addEventListener('click', closeForm);
 function openForm() {
     heroElement.style.display = "none";
     formElement.style.display = "flex";
+    bookCards.classList.add('blurBackground')
 }
 
 function closeForm() {
     formElement.style.display = "none";
-    heroElement.style.display = "flex";
+    bookCards.classList.remove('blurBackground')
 }
 
 function deleteBookCard() {
@@ -114,6 +115,7 @@ inputSubmitButton.addEventListener('click', (event) => {
 
     formElement.style.display = "none";
     heroElement.style.display = "none";
+    bookCards.classList.remove('blurBackground')
     event.preventDefault();
     addBookToLibrary();
     showBookCards();
