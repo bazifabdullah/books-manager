@@ -62,7 +62,6 @@ function createCard(book, index) {
     const btnDiv = document.createElement('div');
     const deleteBtn = document.createElement('button');
     const readStatusBtn = document.createElement('button');
-    const readCheck = document.querySelector('#read-Check').checked;
 
     card.classList.add('single-card');
     card.dataset.index = index;
@@ -80,7 +79,7 @@ function createCard(book, index) {
         readStatusBtn.innerText = "Mark as Read"
     }
 
-    text.textContent = `${book.title} by ${book.author}, Pages: ${book.pages}, ${book.readStatus}`;
+    text.innerHTML = `${book.title} by ${book.author}<br>Pages: ${book.pages}<br>${book.readStatus}`;
 
     bookCards.appendChild(card);
     card.appendChild(text);
